@@ -1,16 +1,25 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
-# Create your models here.
 class Chat(models.Model):
-    user_id = models.CharField(max_length=50)
+    user = models.ForeignKey(User, on_delete=models.PROTECT)
+
+    def __str__(self):
+        return str(self.id)
 
 
-class ChatHistory(models.Model):
+ROlE_CHOICES = {
+    1: "user",
+    2: "model",
+}
+
+
+class ChatMessage(models.Model):
     chat = models.ForeignKey(Chat, on_delete=models.CASCADE)
     message = models.TextField()
-    role = models.CharField(max_length=10)  # 'user' or 'model'
-    timestamp = models.DateTimeField(auto_now_add=True)
+    role = models.IntegerField(choices=ROlE_CHOICES.items())
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self) -> str:
-        return self.role + ": " + self.message
+        return ROlE_CHOICES[self.role] + ": " + self.message
