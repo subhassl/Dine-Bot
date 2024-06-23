@@ -4,7 +4,10 @@ from chat_app.models import Chat, ChatMessage
 
 @admin.register(Chat)
 class ChatAdmin(admin.ModelAdmin):
-    list_display = ("user_id",)
+    list_display = (
+        "id",
+        "user_id",
+    )
 
 
 @admin.register(ChatMessage)

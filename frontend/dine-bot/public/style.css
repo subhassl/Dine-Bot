@@ -1,0 +1,136 @@
+body {
+    background: #f0f4f9;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  /* General scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px; /* Adjust the width as desired */
+  }
+  
+  /* The scrollbar track */
+  ::-webkit-scrollbar-track {
+    background: #f0f0f0; /* Adjust the background color */
+    border-radius: 16px; /* Optional rounded corners */
+  }
+  
+  /* The scrollbar thumb (the draggable part) */
+  ::-webkit-scrollbar-thumb {
+    background-color: #dfdfdf; /* Adjust the color */
+    border-radius: 16px; /* Optional rounded corners */
+  }
+  
+  .logo {
+    max-width: 230px;
+    margin: 16px;
+  }
+  
+  .token-input {
+    background-color: #ffff !important;
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 12px;
+    border-radius: 16px;
+  }
+  
+  .chat-container {
+    background-color: #ffff;
+    position: relative;
+    height: 73vh;
+    border-radius: 16px;
+  }
+  .messages-list {
+    margin-top: 10px;
+    overflow-y: scroll; /* Add scrolling to messages */
+    padding: 16px;
+    max-height: 90%;
+  }
+  
+  .message-gemini {
+    background-color: #e9eef6;
+    margin-bottom: 10px;
+    padding: 16px;
+    border-radius: 16px;
+    border-start-start-radius: 6px;
+  }
+  
+  .message-user {
+    background-color: #d3e3fd;
+    margin-bottom: 10px;
+    padding: 12px;
+    border-radius: 16px;
+    border-start-end-radius: 6px;
+    margin-left: auto; /* Align to the right */
+    max-width: 90%; /* Limit message width */
+  }
+  
+  .message-form {
+    position: absolute;
+    padding: 16px;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .message-input {
+    background-color: #f0f4f9 !important;
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 12px;
+    border-radius: 16px;
+    border-start-end-radius: 6px;
+  }
+  
+  .chat-bubble {
+    display: inline-block;
+  }
+  
+  .typing {
+    align-items: center;
+    display: flex;
+    height: 17px;
+  }
+  
+  .typing .dot {
+    animation: mercuryTypingAnimation 1.8s infinite ease-in-out;
+    background-color: #969696;
+    border-radius: 50%;
+    height: 7px;
+    margin-right: 4px;
+    vertical-align: middle;
+    width: 7px;
+    display: inline-block;
+  }
+  
+  .typing .dot:nth-child(1) {
+    animation-delay: 200ms;
+  }
+  
+  .typing .dot:nth-child(2) {
+    animation-delay: 300ms;
+  }
+  
+  .typing .dot:nth-child(3) {
+    animation-delay: 400ms;
+  }
+  
+  .typing .dot:last-child {
+    margin-right: 0;
+  }
+  
+  @keyframes mercuryTypingAnimation {
+    0% {
+      transform: translateY(0px);
+    }
+    28% {
+      transform: translateY(-7px);
+      background-color: #969696;
+    }
+    44% {
+      transform: translateY(0px);
+      background-color: #969696;
+    }
+  }
