@@ -13,7 +13,10 @@ const Home = () => {
     <div className="container">
       <div className="d-flex mt-5 mb-3 align-items-center">
         <h2 className="text-primary">Dine Bot</h2>
-        <button className="btn btn-secondary ms-auto" onClick={handleLogout}>
+        <button
+          className="btn btn-sm btn-secondary ms-auto"
+          onClick={handleLogout}
+        >
           Logout
         </button>
       </div>

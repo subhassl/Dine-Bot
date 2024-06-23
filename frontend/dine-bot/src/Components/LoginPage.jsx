@@ -13,6 +13,11 @@ const LoginPage = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
 
+    if (!username || !password) {
+      setMessage("Please enter your username and password.");
+      return;
+    }
+
     try {
       const response = await axios.post(
         "http://127.0.0.1:8000/api/auth-token/",
@@ -29,7 +34,6 @@ const LoginPage = () => {
 
       const token = response.data.token;
       login(token, username);
-      setMessage(`Hello, ${username}!`);
       navigate("/home");
     } catch (error) {
       console.error(error);
@@ -44,26 +48,26 @@ const LoginPage = () => {
 
   return (
     <div className="d-flex justify-content-center align-items-center vh-100">
-      <div className="card p-4" style={{ width: "400px" }}>
+      <div className="login-container p-4" style={{ width: "400px" }}>
         <h2 className="fw-bold text-center mb-4">Login</h2>
-        <form onSubmit={handleLogin} className="form w-100" noValidate>
+        <form onSubmit={handleLogin} className="form" noValidate>
           <div className="mb-3">
-            <label className="form-label fs-6 fw-semibold">Username</label>
             <input
               type="text"
-              className="form-control form-control-lg"
+              className="login-input form-control form-control-lg"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
+              placeholder="Username"
               required
             />
           </div>
           <div className="mb-3">
-            <label className="form-label fs-6 fw-semibold">Password</label>
             <input
               type="password"
-              className="form-control form-control-lg"
+              className="login-input form-control form-control-lg"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
               required
             />
           </div>
